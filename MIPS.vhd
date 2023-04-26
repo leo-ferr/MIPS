@@ -19,6 +19,19 @@ architecture arq of MIPS is
 	signal saida_somador_prox_instru : std_logic_vector(tamanho - 1 downto 0);
 	signal instrucao : std_logic_vector(tamanho - 1 downto 0);
 
+	signal dado_escrever : std_logic_vector(tamanho - 1 downto 0);
+	signal dado_lido1_regs, dado_lido2_regs : std_logic_vector(tamanho - 1 downto 0);
+
+	---- sinais de controle
+	signal regs_dest : std_logic;
+	signal desvio      : std_logic;
+	signal memoria_leitura : std_logic;
+	signal mux_memoria : std_logic;
+	signal ula_op          : std_logic;
+	signal memoria_escrita : std_logic;
+	signal ula_fonte   :std_logic;
+	signal escr_reg : std_logic
+
 begin
 
 	PC : registrador port map(
@@ -49,20 +62,38 @@ begin
 		q => instrucao
 	);
 
-	banco_regs : banco_registradores 
-		port map(
-			reg_ler1 => instrucao(),
-			reg_ler2 => ,
-			reg_escrever => ,
-			dado_escrever => ,
-			dado_lido1 =>,
-			dado_lido2 => ,
+	CONTROLE : controle port map(
+		instru => instrucao(31 downto 26),
 
-			regs_dest => ,
-			escr_reg => ,
-			clock => ,
-			reset => ,
+		regs_dest => regs_dest,
+        desvio      => desvio,
+        memoria_leitura => memoria_leitura,
+        mux_memoria => mux_memoria,
+        ula_op          => ula_op,
+        memoria_escrita => memoria_escrita,
+        ula_fonte   => ula_fonte,
+        escr_reg => escr_reg
+
+	);
+
+	BANCO_REGS : banco_registradores 
+		port map(
+			reg_ler1 => instrucao(25 downto 21),
+			reg_ler2 => instrucao(20 downto 16),
+			reg_escrever => instrucao(15 downto 11),
+			dado_escrever => dado_escrever,
+			dado_lido1 => dado_lido1_regs,
+			dado_lido2 => dado_lido2_regs,
+
+			regs_dest => regs_dest,
+			escr_reg => escr_reg,
+			clock => clk,
+			reset => reset,
 
 		);
+
+	ULA : ula port map(
+		
+	);
 
 end arq;

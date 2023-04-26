@@ -76,4 +76,40 @@ package utils is
 		);
 
 	end banco_registradores;
+
+	entity controle is
+		port(
+			instru : std_logic_vector(5 downto 0);
+
+			--- sinais gerados
+			regs_dest : std_logic;
+			desvio      : std_logic;
+			memoria_leitura : std_logic;
+			mux_memoria : std_logic;
+			ula_op          : std_logic;
+			memoria_escrita : std_logic;
+			ula_fonte   :std_logic;
+			escr_reg : std_logic
+			
+		);
+
+	end controle;
+
+	ENTITY gerador_operando IS
+		generic( tamanho : integer := 32);
+		PORT(
+			MD: IN  STD_LOGIC_VECTOR(tamanho - 1 DOWNTO 0);
+			MR: IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+			saida	: OUT STD_LOGIC_VECTOR(tamanho + 1 DOWNTO 0)
+		);
+	END gerador_operando;
+
+	ENTITY multiplicador IS
+		generic( tamanho : integer := 32)
+		PORT(
+			operando_1, operando_2: IN  STD_LOGIC_VECTOR(tamanho - 1 DOWNTO 0);
+			saida	: OUT STD_LOGIC_VECTOR((2 * tamanho) - 1 DOWNTO 0)
+		);
+	END multiplicador;
+
 end package;
