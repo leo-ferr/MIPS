@@ -1,16 +1,20 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
 package utils is
 	constant N_BITS : integer := 8;
-	ENTITY somador_completo IS
+
+	component somador_completo IS
 		PORT(
 			a, b 		: IN  STD_LOGIC;
 			carry_in	: IN  STD_LOGIC;
 			carry_out	: OUT STD_LOGIC;
 			saida		: OUT STD_LOGIC
 		);
-	END somador_completo;
+	END component;
 
-	ENTITY registrador IS
-	GENERIC( width : INTEGER := 8);
+	component registrador IS
+		GENERIC( width : INTEGER := 8);
 		PORT(
 			data 	: IN  STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
 			clock	: IN  STD_LOGIC;
@@ -18,9 +22,9 @@ package utils is
 			enable	: IN  STD_LOGIC;
 			q		: OUT STD_LOGIC_VECTOR(width - 1 DOWNTO 0)	
 		);
-	END registrador;
+	END component;
 
-	ENTITY somador IS
+	component somador IS
 		GENERIC( width : INTEGER := 8);
 		PORT(
 			a, b		: IN  STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
@@ -28,9 +32,9 @@ package utils is
 			Ov, Cout	: OUT STD_LOGIC;
 			saida 		: OUT STD_LOGIC_VECTOR(width - 1 DOWNTO 0)
 		);
-	END somador;
+	END component;
 
-	ENTITY ula1 IS
+	component ula IS
 		GENERIC( width : INTEGER := 8);
 		PORT(
 			a, b		: IN STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
@@ -38,18 +42,18 @@ package utils is
 			Ov, Cout	: OUT STD_LOGIC;
 			saida 		: OUT STD_LOGIC_VECTOR(width - 1 DOWNTO 0)
 		);
-	END ula1;
+	END component;
 
-	ENTITY mux_2_1 IS
+	component mux_2_1 IS
 		GENERIC( width : INTEGER := 8);
 		PORT(
 			in_0, in_1	: IN  STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
 			sel 		: IN  STD_LOGIC;
 			saida		: OUT STD_LOGIC_VECTOR(width - 1 DOWNTO 0)
 		);
-	END mux_2_1;
+	END component;
 	
-	ENTITY memoria_ram IS
+	component memoria_ram IS
 		PORT
 		(
 			clock		: IN STD_LOGIC  := '1';
@@ -59,10 +63,10 @@ package utils is
 			wren		: IN STD_LOGIC  := '0';
 			q		: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
 		);
-	END memoria_ram;
+	END component;
 
-	entity banco_registradores is
-		generic (tamanho : integer := 32)
+	component banco_registradores is
+		generic (tamanho : integer := 32);
 		port(
 			reg_ler1, reg_ler2 : std_logic_vector(4 downto 0);
 			reg_escrever : std_logic_vector(4 downto 0);
@@ -75,9 +79,9 @@ package utils is
 			reset : std_logic
 		);
 
-	end banco_registradores;
+	end component;
 
-	entity controle is
+	component controle is
 		port(
 			instru : std_logic_vector(5 downto 0);
 
@@ -93,23 +97,23 @@ package utils is
 			
 		);
 
-	end controle;
+	end component;
 
-	ENTITY gerador_operando IS
+	component gerador_operando IS
 		generic( tamanho : integer := 32);
 		PORT(
 			MD: IN  STD_LOGIC_VECTOR(tamanho - 1 DOWNTO 0);
 			MR: IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
 			saida	: OUT STD_LOGIC_VECTOR(tamanho + 1 DOWNTO 0)
 		);
-	END gerador_operando;
+	END component;
 
-	ENTITY multiplicador IS
-		generic( tamanho : integer := 32)
+	component multiplicador IS
+		generic( tamanho : integer := 32);
 		PORT(
 			operando_1, operando_2: IN  STD_LOGIC_VECTOR(tamanho - 1 DOWNTO 0);
 			saida	: OUT STD_LOGIC_VECTOR((2 * tamanho) - 1 DOWNTO 0)
 		);
-	END multiplicador;
+	END component;
 
 end package;

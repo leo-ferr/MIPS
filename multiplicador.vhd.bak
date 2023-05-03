@@ -4,7 +4,7 @@ USE work.utils.gerador_operando;
 USE work.utils.somador;
 
 ENTITY multiplicador IS
-    generic( tamanho : integer := 32);
+    generic( tamanho : integer := 32)
 	PORT(
 		operando_1, operando_2: IN  STD_LOGIC_VECTOR(tamanho - 1 DOWNTO 0);
 		saida	: OUT STD_LOGIC_VECTOR((2 * tamanho) - 1 DOWNTO 0)

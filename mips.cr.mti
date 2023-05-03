@@ -1,0 +1,153 @@
+C:/Users/alunos/Desktop/MIPS/memoria_ram.vhd {1 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/memoria_ram.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity memoria_ram
+-- Compiling architecture SYN of memoria_ram
+
+} {} {}} C:/Users/alunos/Desktop/MIPS/utils.vhd {0 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/utils.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Compiling package utils
+** Error: C:/Users/alunos/Desktop/MIPS/utils.vhd(3): near "ENTITY": expecting END
+
+} {5.0 6.0} {}} C:/Users/alunos/Desktop/MIPS/ula.vhd {0 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/ula.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+** Error: (vcom-11) Could not find work.utils.
+
+** Error: C:/Users/alunos/Desktop/MIPS/ula.vhd(3): (vcom-1195) Cannot find expanded name "work.UTILS".
+
+** Error: C:/Users/alunos/Desktop/MIPS/ula.vhd(3): Unknown expanded name.
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+** Error: C:/Users/alunos/Desktop/MIPS/ula.vhd(6): VHDL Compiler exiting
+
+} {4.0 5.0 6.0 7.0 8.0 9.0 11.0 12.0} {}} C:/Users/alunos/Desktop/MIPS/mux_2_1.vhd {0 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/mux_2_1.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+** Error: (vcom-11) Could not find work.utils.
+
+** Error: C:/Users/alunos/Desktop/MIPS/mux_2_1.vhd(3): (vcom-1195) Cannot find expanded name "work.UTILS".
+
+** Error: C:/Users/alunos/Desktop/MIPS/mux_2_1.vhd(3): Unknown expanded name.
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+** Error: C:/Users/alunos/Desktop/MIPS/mux_2_1.vhd(6): VHDL Compiler exiting
+
+} {4.0 5.0 6.0 7.0 8.0 9.0 11.0 12.0} {}} C:/Users/alunos/Desktop/MIPS/controle.vhd {0 {vcom -work work -2002 -explicit {C:\Users\alunos\Desktop\MIPS\controle.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity controle
+-- Compiling architecture arq of controle
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(25): (vcom-1136) Unknown identifier "tamanho".
+
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(25): Bad expression in left bound of range expression.
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(25): Type error in range expression.
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(26): near "others": syntax error
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(30): (vcom-1136) Unknown identifier "clock".
+
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(30): Expression is not a signal.
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(34): (vcom-1136) Unknown identifier "clock".
+
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(34): Type error resolving infix expression "and" as type std.STANDARD.BOOLEAN.
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(37): (vcom-1441) CONDITIONAL VARIABLE ASSIGNMENT is not defined for this version of the language.
+
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(39): Illegal target for signal assignment.
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(39): (vcom-1136) Unknown identifier "banco".
+
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(43): Illegal target for signal assignment.
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(43): (vcom-1136) Unknown identifier "dado_lido1".
+
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(44): Illegal target for signal assignment.
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(44): (vcom-1136) Unknown identifier "dado_lido2".
+
+** Error: C:\Users\alunos\Desktop\MIPS\controle.vhd(47): VHDL Compiler exiting
+
+} {8.0 9.0 10.0 14.0 15.0 17.0 18.0 20.0 21.0 23.0 24.0 26.0 27.0 29.0 30.0 31.0} {}} C:/Users/alunos/Desktop/MIPS/gera_opernado.vhd {0 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/gera_opernado.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+** Error: (vcom-11) Could not find work.utils.
+
+** Error: C:/Users/alunos/Desktop/MIPS/gera_opernado.vhd(3): (vcom-1195) Cannot find expanded name "work.utils".
+
+** Error: C:/Users/alunos/Desktop/MIPS/gera_opernado.vhd(3): Unknown expanded name.
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_SIGNED
+** Error: C:/Users/alunos/Desktop/MIPS/gera_opernado.vhd(8): VHDL Compiler exiting
+
+} {4.0 5.0 6.0 7.0 8.0 9.0 13.0 14.0} {}} C:/Users/alunos/Desktop/MIPS/registrador.vhd {0 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/registrador.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+** Error: (vcom-11) Could not find work.utils.
+
+** Error: C:/Users/alunos/Desktop/MIPS/registrador.vhd(3): (vcom-1195) Cannot find expanded name "work.UTILS".
+
+** Error: C:/Users/alunos/Desktop/MIPS/registrador.vhd(3): Unknown expanded name.
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+** Error: C:/Users/alunos/Desktop/MIPS/registrador.vhd(6): VHDL Compiler exiting
+
+} {4.0 5.0 6.0 7.0 8.0 9.0 11.0 12.0} {}} C:/Users/alunos/Desktop/MIPS/MIPS.vhd {0 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/MIPS.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+** Error: (vcom-11) Could not find work.utils.
+
+** Error: C:/Users/alunos/Desktop/MIPS/MIPS.vhd(3): (vcom-1195) Cannot find expanded name "work.utils".
+
+** Error: C:/Users/alunos/Desktop/MIPS/MIPS.vhd(3): Unknown expanded name.
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+** Error: C:/Users/alunos/Desktop/MIPS/MIPS.vhd(7): VHDL Compiler exiting
+
+} {4.0 5.0 6.0 7.0 8.0 9.0 11.0 12.0} {}} C:/Users/alunos/Desktop/MIPS/multiplicador.vhd {0 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/multiplicador.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+** Error: (vcom-11) Could not find work.utils.
+
+** Error: C:/Users/alunos/Desktop/MIPS/multiplicador.vhd(3): (vcom-1195) Cannot find expanded name "work.utils".
+
+** Error: C:/Users/alunos/Desktop/MIPS/multiplicador.vhd(3): Unknown expanded name.
+** Error: (vcom-11) Could not find work.utils.
+
+** Error: C:/Users/alunos/Desktop/MIPS/multiplicador.vhd(4): (vcom-1195) Cannot find expanded name "work.utils".
+
+** Error: C:/Users/alunos/Desktop/MIPS/multiplicador.vhd(4): Unknown expanded name.
+** Error: C:/Users/alunos/Desktop/MIPS/multiplicador.vhd(6): VHDL Compiler exiting
+
+} {6.0 7.0 8.0 9.0 10.0 12.0 13.0 14.0 15.0 17.0} {}} C:/Users/alunos/Desktop/MIPS/somador.vhd {0 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/somador.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+** Error: (vcom-11) Could not find work.utils.
+
+** Error: C:/Users/alunos/Desktop/MIPS/somador.vhd(3): (vcom-1195) Cannot find expanded name "work.UTILS".
+
+** Error: C:/Users/alunos/Desktop/MIPS/somador.vhd(3): Unknown expanded name.
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+** Error: C:/Users/alunos/Desktop/MIPS/somador.vhd(6): VHDL Compiler exiting
+
+} {4.0 5.0 6.0 7.0 8.0 9.0 11.0 12.0} {}} C:/Users/alunos/Desktop/MIPS/somador_completo.vhd {1 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/somador_completo.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity somador_completo
+-- Compiling architecture behavior of somador_completo
+
+} {} {}} C:/Users/alunos/Desktop/MIPS/banco_registradores.vhd {0 {vcom -work work -2002 -explicit C:/Users/alunos/Desktop/MIPS/banco_registradores.vhd
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity banco_registradores
+** Error: C:/Users/alunos/Desktop/MIPS/banco_registradores.vhd(7): near "port": expecting ';'
+
+} {7.0 8.0} {}}
