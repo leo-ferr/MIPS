@@ -1,34 +1,36 @@
-LIBRARY IEEE;
-LIBRARY WORK;
-USE WORK.UTILS.ALL;
-USE IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+library work;
+use work.utils.all;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
 
-ENTITY ula IS
-	generic ( tamanho : integer := 32);
-	PORT(
-		a, b		: IN STD_LOGIC_VECTOR(tamanho - 1 DOWNTO 0);
-		op			: IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-		Zero 		: OUT STD_LOGIC;
-		Ov, Cout	: OUT STD_LOGIC;
-		saida 	: OUT STD_LOGIC_VECTOR(tamanho - 1 DOWNTO 0)
+entity ula is
+	port(
+		a, b		: in std_logic_vector(31 downto 0);
+		op			: in std_logic_vector(2 downto 0);
+		Zero 		: out std_logic;
+		Ov, Cout	: out std_logic;
+		saida 	: out std_logic_vector(31 downto 0)
 	);
-END ula;
+end ula;
 
-ARCHITECTURE behavior OF ula IS
-	SIGNAL s: STD_LOGIC_VECTOR(tamanho - 1 DOWNTO 0);
-	SIGNAL saida_soma, saida_multi : STD_LOGIC_VECTOR(tamanho - 1 DOWNTO 0);
-	SIGNAL soma_Ov, soma_Cout : STD_LOGIC;
+architecture behavior of ula is
+	signal s: std_logic_vector(31 downto 0);
+	signal saida_soma, saida_multi : std_logic_vector(31 downto 0);
+	signal soma_Ov, soma_Cout : std_logic;
 	
-	signal sub : std_LOGIC;
-BEGIN
-	soma: somador PORT MAP(
-					a => a,
-					b => b,
-					carry_in => sub,
-					Ov => soma_Ov,
-					Cout => soma_Cout,
-					saida => saida_soma
-				);
+	signal subtracao : std_logic;
+
+begin
+	soma: somador 
+		port map(
+			a => a,
+			b => b,
+			subtracao => subtracao,
+			Ov => soma_Ov,
+			Cout => soma_Cout,
+			saida => saida_soma
+		);
 
 	multiplica : multiplicador 
 		port map(
@@ -37,25 +39,28 @@ BEGIN
 			saida => saida_multi
 		);
 	
-	PROCESS(a, b, op,saida_soma)
-	BEGIN
-		IF (op = "000") THEN -- multiplicacao
+	process(a, b, op, saida_soma, saida_multi)
+	begin
+		case op is
+		when "000" => -- multiplicacao
 			s <= saida_multi;
 			
-		ELSIF (op = "001") THEN	-- soma
-			sub <= '0'; 
+		when "001" | "010" => -- soma
+			-- se op = "001" fazemos a soma dos valores, se op = "010" fazemos a subtração
+			-- portanto podemos colocar o op(1) como indicador de qual operação será realizada.
+			subtracao <= op(1);
 			s <= saida_soma;
-			
-		ELSIF (op = "010") THEN	-- subtracao
-			sub <= '1'; 
-			s <= saida_soma;
-			
-		END IF;
-	END PROCESS;
+		
+		when others =>
+			subtracao <= '0';
+			s <= (others => '0');
+		end case;
+	end process;
 	
 	saida <= s;
 	Ov <= soma_Ov;
 	Cout <= soma_Cout;
-	Zero <= x"00000000" = s;
+	-- x"0000000000000000" = zero em hexa 64bits
+	Zero <= '1' when s = x"0000000000000000" else '0';	
 	
-END behavior;
+end behavior;

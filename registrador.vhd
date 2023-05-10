@@ -1,36 +1,30 @@
-LIBRARY IEEE;
-LIBRARY WORK;
-USE WORK.UTILS.n_bits;
-USE IEEE.STD_LOGIC_1164.ALL;
+library IEEE;
+library WORK;
+use IEEE.STD_LOGIC_1164.all;
 
-ENTITY registrador IS
-	PORT(
-		data 	: IN  STD_LOGIC_VECTOR(n_bits - 1 DOWNTO 0);
-		clock	: IN  STD_LOGIC;
-		clear	: IN  STD_LOGIC;
-		enable	: IN  STD_LOGIC;
-		q		: OUT STD_LOGIC_VECTOR(n_bits - 1 DOWNTO 0)	
+entity registrador is
+	generic( tamanho : integer := 32);
+	port(
+		data 	: in  std_logic_vector(tamanho - 1 downto 0);
+		clock	: in  std_logic;
+		clear	: in  std_logic;
+		enable: in  std_logic;
+		q		: out std_logic_vector(tamanho - 1 downto 0)	
 	);
-END registrador;
+end registrador;
 
-ARCHITECTURE behavior OF registrador IS
-
-	SIGNAL s: STD_LOGIC_VECTOR(n_bits - 1 DOWNTO 0); 
-
-BEGIN
+architecture behavior of registrador is
+begin
 	
-	PROCESS(clock, clear, enable)
-	BEGIN
-		IF (clear = '1' ) THEN
-			s <= (OTHERS => '0');
+	process(clock, clear, enable)
+	begin
+		if clear = '1' then
+			q <= (others => '0');
 			
-		ELSIF rising_edge(clock) AND (enable = '1') THEN
-			s <= data;
+		elsif rising_edge(clock) and (enable = '1') then
+			q <= data;
 			
-		END IF;
+		end if;
 	
-	END PROCESS;
-	
-	q <= s;
-	
-END behavior;
+	end process;
+end behavior;

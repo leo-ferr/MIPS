@@ -1,18 +1,19 @@
-LIBRARY IEEE;
-USE IEEE.STD_LOGIC_1164.ALL;
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
 
-ENTITY somador_completo IS
-	PORT(
-		a, b 		: IN  STD_LOGIC;
-		carry_in	: IN  STD_LOGIC;
-		carry_out: OUT STD_LOGIC;
-		saida		: OUT STD_LOGIC
+entity somador_completo is
+	port(
+		a, b 		: in  std_logic;
+		carry_in	: in  std_logic;
+		carry_out: out std_logic;
+		saida		: out std_logic
 	);
-END somador_completo;
+end somador_completo;
 
-ARCHITECTURE behavior OF somador_completo IS
-BEGIN
+architecture behavior of somador_completo is
+begin
 	
-	saida <= carry_in XOR a XOR b;
-	carry_out <= (a AND b) OR (a AND carry_in) OR (b AND carry_in);
-END behavior;
+	saida <= carry_in xor a xor b;
+	carry_out <= (a and b) or (a and carry_in) or (b and carry_in);
+	
+end behavior;

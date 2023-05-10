@@ -1,37 +1,39 @@
-LIBRARY IEEE;
-LIBRARY WORK;
-USE WORK.UTILS.somador_completo;
-USE IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+library work;
+use work.utils.somador_completo;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_signed.all;
 
-ENTITY somador IS
-	GENERIC( width : INTEGER := 8);
-	PORT(
-		a, b		: IN  STD_LOGIC_VECTOR(width - 1 DOWNTO 0);
-		carry_in	: IN  STD_LOGIC;
-		Ov, Cout	: OUT STD_LOGIC;
-		saida 	: OUT STD_LOGIC_VECTOR(width - 1 DOWNTO 0)
+entity somador is
+	generic( tamanho : integer := 32);
+	port(
+		a, b		: in  std_logic_vector(tamanho - 1 downto 0);
+		subtracao: in  std_logic;
+		Ov, Cout	: out std_logic;
+		saida 	: out std_logic_vector(tamanho - 1 downto 0)
 	);
-END somador;
+end somador;
 
-ARCHITECTURE behavior OF somador IS
+architecture behavior of somador is
 
-	SIGNAL c: STD_LOGIC_vector(width downto 0) := (0 => carry_in, others => '0');
+	signal c			: std_logic_vector(tamanho downto 0) := (0 => subtracao, others => '0');
+	signal menos_b : std_logic_vector(tamanho - 1 downto 0);
+begin
+	c(0) <= subtracao;
 	
-BEGIN
+	menos_b <= (not b) when subtracao = '1' else b;
 	
-	menos_b <= (not b) + carry_in when carry_in = '1' else b;
-	
-	Bits: for index in 0 to width generate
+	Bits: for index in 0 to tamanho - 1 generate
 		b: somador_completo port map(
 			a => a(index),
 			b => menos_b(index),
-			carry_in	=> c(index);
-			carry_out => c(index + 1);
+			carry_in	=> c(index),
+			carry_out => c(index + 1),
 			saida	=> saida(index)
 		);
 	end generate;
 	
-	Cout <= c(width);
-	Ov <= c(width) XOR c(width - 1);
+	Cout <= c(tamanho - 1);
+	Ov <= c(tamanho - 1) XOR c(tamanho - 2);
 	
-END behavior;
+end behavior;
